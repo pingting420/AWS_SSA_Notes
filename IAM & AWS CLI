@@ -1,0 +1,48 @@
+##IAM & AWS CLI
+
+#IAM = Identity and Access Management, Global service
+IAM : Users and Groups
+Users or Groups can be assigned JSON documents called policies
+The least privilege principle 
+
+#IAM Policies
+How to add user?
+Add permissions / add inline policy
+IAM- Password Policy
+
+#*Multi Factor Authentication – MFA
+MFA = password you know + security device you own
+
+#*MFA devices options in AWS
+a. Virtual MFA device : Google Authenticator / Authy
+b. Universal 2nd factor(U2F) Security Key
+c. Hardware Key Fob MFA Device
+d. Hardware Key Fob MFA Device for AWS GovCloud (US)
+
+#How to access AWS?
+a.	AWS Management Console
+b.	AWS Command Line Interface (CLI)
+c.	AWS Software Developer Kit (SDK)
+
+#IAM Security Tools:
+a.	IAM Credentials Report
+b.	IAM Access Advisor
+
+#IAM Guidelines & Best Practices:
+a.	Don’t  use the root account except for AWS account setup
+b.	One physical user = One AWS user
+c.	Assign users to groups and assign permissions to group
+d.	Create a strong password policy
+e.	Create and use Roles for giving permissions to AWS services
+f.	Use Access Keys for Programmatic Access ( CLI / SDK)
+g.	Audit permission of your account with the IAM Credentials Report
+
+#IAM Section – Summary:
+User : mapped to a physical user, has a password for AWS Console
+Groups : contains users only 
+Policies: JSON document that outlines permissions for users or groups
+Roles: for EC2 instances or AWS services
+Security : MFA + Password Policy
+Access Keys : access AWS using the CLI or SDK
+Audit: IAM Credential Report & IAM Access Advisor
+
