@@ -1,0 +1,92 @@
+# Private vs Public IP (IPv4)
+Networking has two sorts of IPs. IPv4 and IPv6
+IPv4 allows for 3.7 billion different address in public space
+IPv4: [0-255]
+
+Public IP means the machine can be identified on the internet
+Must be unique across the whole web and unique
+Can be geo-located easily
+
+Private IP
+Two different private networks can have the same IPs.
+Try to avoid using Elastic IP:
+They often reflect poor architectural decision;
+Instead, use a random public IP and register a DNS name to it.
+Or use a Load Balancer and don’t use a public IP
+
+E2C machine comes with:
+A private IP for the internal AWS Network
+A public IP, for WWW
+
+Doing SSH into EC2 machines:
+We can only use public IP
+
+#*Spot Instance 
+Spot Fleets: set of Spot Instance + On-Demand Instance
+Strategies to allow Spot Instances:
+LowestPrice: from the pool with the lowest price
+Diversified: distributed across all pools
+CapacityOptimized
+
+#Placement Groups
+When create a placement group, specify one of the following strategies for the group :
+a.	Cluster: Same rack / Same AZ
+Pros: Great network
+Cons: If the rack fails, all instances fails at the same time
+Use case:
+Big data job needs to complete fast
+Application needs low latency and high network
+
+b.	Spread : Low risk
+Pros: span across availability Zones / reduce risk / on different physical hardware
+Cons: Limited to 7 instances per AZ per placement group 
+Use cases: 
+app needs maximize high availability
+critical app must be isolated from failure from each other
+
+
+c.	Partition
+Uses Case: HDFS, HBase, Cassandre, Kafka
+
+#ENI – Elastic Network Interfaces （ENI）
+A virtual network card
+
+#EC2 Hibernate
+a.	The in-memory (RAM) state is preserved
+b.	The instance boot is much fatser
+(the OS is not stopped / restarted)
+c.	Under the hood.
+d.	The root EBS volume must be encrypted
+Use case:
+a.	Long -running processing
+b.	Saving the RAM state
+c.	Services that take time to initialize
+
+#EC2 Nitro
+a.	Underlying Platform for the next generation of EC2 instances
+b.	New virtualization technology
+c.	Allows for better performance:
+1)	Better networking options
+2)	Higher Speed EBS
+d.	Better underlying security
+e.	Instance types example
+
+#EC2 – Understanding vCPU
+a.	Multiple threads can run on one CPU
+b.	Each thread is represented as a virtual CPU
+c.	4CPU 2 threads per CPU = 8 vCPU in total
+Have one thread per core, have better performance
+
+#EC2 – Capacity Reservations
+a.	CR ensure you have EC2 Capacity when needed
+b.	Manual or planned end-date for the reservation
+c.	No need for 1 or 3-year commitment
+d.	Capacity access is immediate, you get billed as soon as it starts.
+e.	Combine with RI and Savings Plans to do cost saving
+
+
+
+
+
+
+
