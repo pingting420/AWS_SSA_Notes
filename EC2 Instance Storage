@@ -1,0 +1,82 @@
+#EBS – Elastic Block Store
+EBS Volume is a network drive you can attach to your instances while they run
+They can only be mounted to one instance at a time
+Bound to a specific availability zone
+Like a “network USB stick”
+a.	It’s a network drive
+b.	Locked to an availability zone
+c.	Have a provisioned capacity
+
+*EBS – Delete on Termination attribute
+By default, the root EBS volume is deleted.
+By default, any other attached EBS volume is not deleted
+This can be controlled by AWS console/ AWS CLI
+USE CASE: preserve root volume when instance is terminated, to save some data, you can disable delete on termination for the root volume.
+
+#EBS Snapshots:backup
+
+#AMI
+Amazon Machine Image: are a customization of an EC2 instance / built for a specific region 
+
+#EC2 Instance Store
+EBS network drives
+EC2 need a high- performance hardware disk, use EC2 Instance Store
+EC2 Instance Store lose their storage if they’re stopped
+Good for buffer / cache / scratch data / temporary content
+Risk of data loss if hardware fails
+
+#EBS Volume types：
+a.	*gp2 / gp3
+General Purpose SSD
+Cost effective storage, low latency
+only gp2 / gp3 and io1 / io2 can be used as boot volumes
+gp3 can independent set up IOPs and for gp2, they are linked together
+b.	io1 / io2
+IO2 has more durability and more IOPS per GiB
+c.	st1(HDD)
+d.	sc1(HDD)Hard Disk Drives
+Provisioned IOPS(PIOPS)SSD
+
+#EBS Multi-Attach –only if io 1 /io 2 family
+Attach the same EBS volume to multiple EC2 instance in the same AZ
+Use case:
+Achieve higher application availability
+
+#EBS Encryption
+Leverages keys from KMS (AES-256)
+How to encrypt an unencrypted EBS volume?
+
+#EBS RAID Options
+RAID 0 – increase performance
+RAID 1 – increase fault tolerance
+RAID 5(not recommended)
+RAID 6 (not recommended)
+
+#EFS – Elastic File System
+Managed NFS (network file system) that can be mounted on many EC@
+Highly available, scalable, expensive, pay per use
+*!Compatible with Linux based AMI ( not Windows)
+
+#EFS –performance &storage Classes
+Performance mode(set at EFS creation time)
+a.	 General purpose: latency-sensitive (web server, CMS)
+b.	Max I/O – high latency, throughput, highly parallel(big data, processing)
+
+Throughput mode:
+If have small size file, need very high throughput, need move into provision throughput mode for EFS.
+Storage Tiers:
+Standard : for frequently accessed files
+Infrequent access: cost to retrieve files, lower price to stores
+
+!!#EBS vs EFS
+
+
+
+
+
+
+
+
+
+
+
