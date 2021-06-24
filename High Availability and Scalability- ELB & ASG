@@ -1,0 +1,104 @@
+# High Availability & Scalability for EC2
+Vertical Scaling
+Horizontal Scaling
+High availability
+
+#Load balancer
+Is a managed load balancer
+LBs can scale but not instantaneously – contact AWS for “warm-up”
+Troubleshooting:
+4xx errors are client induced errors
+5xx errors are application induced errors
+LB errors 503 means at capacity or no registered target
+If the LB can’t connect to your application , check your security groups
+
+#Classic Load Balancers(vl)
+Supports TCP (Layer4) ,HTTP & HTTPS (Layer7)
+Health checks are TCP or HTTP based
+
+#Application Load Balancer(V2)
+
+#Network Load Balancer(V2) – NLB 
+a.	Network load balancers(Lyers) allow to :
+Forward TCP & UDP traffic to your instance
+Handle millions of request per seconds
+Less latency ~ 100ms
+b.	NLB has one static IP per AZ and supports assigning Elastic IP
+
+# Load Balancer--- Stickiness
+#Load Balancer – Cross-Zone Load Balancing
+a.	Application Load Balancer
+Always on (can’t disabled)
+No charges for inter AZ data
+b.	Network Load Balancer
+Disabled by default
+You pay charges for inter AZ data if enabled
+c.	Classic Load Balancer
+Through Console = Enabled by default
+Through CLI / API = Disabled by default
+No charges for inter AZ data if enabled
+
+#SSL and TLS certificate – Basics
+SSL allows traffic between your clients and your load balancer to be encrypted in transit
+It have an expiration data and must be renewed .
+
+# SSL—Server Name Indication
+Only works for ALB&NLB, CloudFront
+Does not work for CLB
+Elastic Load Balancers – SSL Certificates
+Classic Load Balancer( v1)
+Support only one SSL certificate
+Must use multiple CLB for multiple hostname with multiple SSL certificate
+
+Application Load Balancer (V2)
+Multiple listeners with multiple SSL certificates
+Uses SNI make it work
+
+Network Load Balancer (v2)
+ Multiple listeners with multiple SSL certificates
+Uses SNI make it work
+
+*！ELB – Connection Draining
+
+*Auto Scaling Group--ASG
+If instance get terminated for whatever reason, the ASG will automativally create new ones as a replacement.
+
+*Auto Scaling Group—Scaling Policies
+
+*Auto Scaling Group – Scaling Cooldowns
+
+*ASG for Solutions Architect
+Launch Template vs Launch Configuration
+
+Launch Template: Must be re-created every time
+Launch Configuration:
+Can have multiple versions
+Create parameters subsets
+Provision using both On-Demand and Spot instance
+Recommended by AWS going forward
+Can use T2 unlimited burst feature
+
+Which scaling policy should you use?
+
+
+
+Exam：
+Load Balancers provide a Static DNS name we can use in our application
+NLB provide the highest performance if your application needs it
+Use a NLB (Network Load Balancer) support TCP instead
+The capacity of your ASG cannot go over the maximum capacity you have allocated during scale out events
+Network Load Balancers expose a public static IP, whereas an Application or Classic Load Balancer exposes a static DNS (URL)
+This is the most secure way of ensuring only the ALB can access the EC2 instances. Referencing by security groups in rules is an extremely powerful rule and many questions at the exam rely on it. Make sure you fully master the concepts behind it!
+SNI (Server Name Indication) is a feature allowing you to expose multiple SSL certs if the client supports it. Read more here: https://aws.amazon.com/blogs/aws/new-application-load-balancer-sni/
+
+
+
+
+
+
+
+
+
+
+
+
