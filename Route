@@ -1,0 +1,56 @@
+#Route 53 –TTL
+Low value means more queries to Route 53, more pricing, more traffic on Route 53
+
+#Route 53 CNAME vs Alias
+CNAME: Points a hostname to any other hostname
+Only for non root domain
+
+Alias:
+Points a hostname to an AWS Resource
+Works for root domain and non root domain
+Free of charge
+Native health check
+
+#Simple Routing Policy
+
+#Weighted Routing Policy
+Control the % of the requests that go to specific endpoint
+
+#Latency Routing Policy
+
+#Health Checks
+About 15 health checker will check the endpoint health
+One request every 2 seconds on average
+
+Health checks can be linked to Route53 DNS queries.
+
+
+#Failover Routing Policy
+
+#Geo Location Routing Policy
+Based on user location
+
+#Geoproximity Routing Policy
+Ability to shift more traffic to resources based on the defined bias
+Must use Route 53 Traffic flow (advanced) to use this feature
+
+#Multi Value Routing Policy
+Use when routing traffic to multiple resources
+Want to associate a Roue 53 health checks with records
+
+#Rout53 as a Registrar
+！How do you integrate a third party domain with Route53
+To create your domain elsewhere but have the name serves of your elsewhere point directly into your hosted zone.
+
+Weighted allows you to redirect a part of the traffic based on a weight (hence a percentage). It's common to use to send a part of a traffic to a new application you're deploying
+DNS records have a TTL (Time to Live) in order for clients to know for how long to caches these values and not overload the DNS with DNS requests. TTL should be set to strike a balance between how long the value should be cached vs how much pressure should go on the DNS.
+Latency will evaluate the latency results and help your users get a DNS response that will minimize their latency (e.g. response time)
+Private hosted zones are meant to be used for internal network queries and are not publicly accessible. Public Hosted Zones are meant to be used for people requesting your website through the public internet. Finally, NS records must be updated on the 3rd party registrar.
+
+
+
+Well-architected framework in AWS
+Five Pillars:
+Cost, Performance, reliability, security, operational excellence
+
+
