@@ -1,0 +1,46 @@
+#AWS Snow Family
+Data migration: snowcone snowballedge  snowmobile
+Edge computing: snow snowball edge
+
+We setup snowball edge/ snowcone device to do edge computing
+
+Snowball edge – compute optimized 
+52vCPU, 208 GiB or RAM
+Optional GPU
+
+Snowball cannot import to Glacier directly
+Must use Amazon S3 first , in combination with an S3 lifecycle policy
+
+#AWS storage Gateway
+3 types of storage gateway:
+File gateway：Integrated with active directory for user authentication
+
+Volume gateway:
+Cached volumes：low latency access to most recent data
+Stored volumes: entire dataset is on premise, scheduled backups to S3
+Tape gateway
+
+!#On-premises data to the cloud – storage gateway
+File access /NFS – user auth with active directory -file gateway(backed by S3)
+Volumes/block storage .iSCSI (tap gateway) –volume gateway(backed by s3 with ebs snapshot)
+No on-premises visualization –hardware 
+
+#Amazon Fsx
+a.	For Windows: (file server)
+Support SMB protocol & Windows NTFS
+b.	For Lustre : high performance computing (HPC)
+
+#Amazon file system deployment options:
+a.	Scratch file system:
+Temporary storage / data is not replicated / high burst / short term processing, optimize costs
+b.	Persistent file system:
+Long-term storage
+Data is replicated within same AZ
+Replace failed files within minutes
+Long-term, sentitive data
+
+
+
+
+
+
