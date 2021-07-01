@@ -1,0 +1,116 @@
+#S3 Encryption
+a.	SSE – S3 
+b.	SSE- KMS
+c.	SSE – C – Must needs HTTP
+d.	Client Side Encryption
+
+HTTP is mandatory for SSE-C
+Encryption in flight is also called SSL/TLS
+
+#S3 Security
+Used Based
+IAM Identity and Access Management
+Resource Based
+Bucket Policies
+
+Bucket settings for block public access
+These setting were created to prevent company data leaks
+
+User Security:
+MFA Delete: can be required in versioned buckets to delete objetcs
+Pre-Signed URLs: valid only for limited time
+
+#S3 CORES
+If a client does a cross-origin request on our S3 bucket, we need to enable the crrect CORES headers
+
+S3 MFA Delete – Multi- Factor Authentication 
+*Only the bucket owner can enable/disable MFA-Delete
+Need MFA only to permanently delete
+
+#S3 Access Logs
+
+ACL -Access Control List
+#S3 Replication ( CRR &SRR) Cross Region Replication / Same Region Replication
+CRR: Compliance, lower latency access, replication across accounts
+
+#S3 Pre-signed URLs
+Latency and Throughput
+Amazon Glacier
+Low cost object storage meant for archiving/ backup
+Data is retained for the longer term
+
+Each item in Glacier is called “Archive”
+Archives are stored in “Vaults”
+
+Amazon Glacier & Glacier Deep Archive
+Amazon Glacier:
+Expedited( 1 to 5 minutes)
+Standard(3 to 5 hours)
+Bulk(5 to 12 hours)
+Minimum storage duration of 90 days
+
+Amazon Glacier Deep Archive- for long term storage -cheaper
+Standard ( 12hours)
+Bulk(48hours)
+
+S3—Moving between storage classes
+For infrequently accessed object, move them to STANDARD_IA
+For archive objects , you don’t need in real-time, GLACIER or DEEP_ARCHIVE
+
+STANDARD_IA
+INTELLIGENT-TIERING
+ONEZONE_IA
+
+Lifecycle rule:
+1.	Transition
+2.	Expire
+3.	Permanently delete
+4.	Delete expired delete markers 
+
+#S3 Analytics -Storage Class Analysis
+Good first step to put together Lifecycle Rules(or improve them)
+
+#S3 Performance
+There are no limits to the number of prefixes in a bucket
+
+#S3 – KMS Limitation
+If you use SSE-KMS, you may be impacted by the KMS limits
+When you upload, it calls the GenerateDataKey KMS API
+Download, it calls Decrypt KMS API
+
+#How to update S3 Performance
+a.	Multi -Part upload:
+Files>100MB, files>5G
+Can help parallelize uploads(speed up transfers)
+b.	S3 Transfer Acceleration
+Increase transfer speed by transferring file to an AWS edge location
+
+S3 Performance – S3 Byte-Range Fetches
+Can be used speed up download
+Can be used to retrieve only partial fata
+
+#S3 Select & Glacier Select
+Filtering of data server-side in S3 to get less, think about S3 Select English or select.
+#S3 Event Notifications
+SNS 
+SQS 
+Lambda Function
+
+#S3- Requester Pays
+
+#AWS Athena
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
