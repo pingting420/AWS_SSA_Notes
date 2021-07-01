@@ -1,0 +1,35 @@
+#RDS – Storge Auto Scaling
+Increase storage 
+It scales automatically
+Avoid manually scaling your database storage
+
+#Understand difference between RDS Read Replicas and Multi AZ
+*Up to 5 Read Replicas
+*Within AZ, Cross AZ or cross region
+*Replication in ASUNC so read are eventually consistent 
+Read replicate if only for reads
+
+Multi AZ (Disaster Recovery)
+Increase availability
+Noy used for scaling
+
+The Read Replicas be setup as Multi AZ for Disaster Recovery
+
+#RDS Security – Encryption
+If the master is not encrypted, the read replicas cannot be encrypted.
+To enforce SSL:
+PostgreSQL
+MySQL
+
+#RDS Security – Network & IAM
+IAM can help control who can manage AWS RDS
+
+IAM database wuthentication works with MySQL and PostgreSQL
+Don’t need a password, just an authentication token obtained hrough IAM&RDS &API calss
+
+#Amazon Aurora
+One reader and multi writes
+
+
+ElastiCache and RDS Read Replicas do indeed help with scaling reads.
+Storing Session Data in ElastiCache is a common pattern to ensuring different instances can retrieve your user's state if needed.
