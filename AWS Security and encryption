@@ -1,0 +1,57 @@
+#Why encryption?
+Encryption in flight (SSL)
+#Server side encryption at rest
+
+KMS Key management service
+EBS / S3 / Redshift / RDS / SSM 
+Symmetric (AES – 256 keys)
+
+Asymmetric (RSA & ECC key pairs)
+Public and private key pair
+Encryption outside of the AWS by users who can’t call the KMS API
+
+Three types of customer master keys:
+AWS managed service default CMK:free
+User keys created 
+User keys imported
+
+
+AWS KMS 101
+Never ever store data in plaintext, especially in your code
+Can only help in encrypting up to 4KB of data per call.
+If data > 4 KB, use envelope encryption
+
+#SSM Parameter Store
+
+#AWS Secrets Manager for rotation of secerts every X days
+Integration with Amazon RDS (MySQL, PostgreSQl, Aurora)
+
+IAM Permissions:
+CRUD and HSM Cluster
+
+CloudHSM Software:
+Manage the Keys
+Manage the Users
+
+SHield Standard by default free, and protects your against DDoS on EC2, ELB , CloudFront Global Accelerator 
+
+Layer 7 is HTTP (vs Layer 4 is TCP)
+Deploy on Application Load Balancer, API Gateway, CloudFront
+
+Define Web ACL(Web Access Control List)
+Rules can include : IP address, HTTP, HTTP body, or URL strings
+Size constriants, geo-match (block countries)
+Rate-based rules – for DDoS protection
+
+#GuardDuty : can protect against CryptoCurrency attacks (has dedicated “finding: for it
+#Amazon Inspector
+There need to be check EC2 instances directly from within the operating system,
+ Need to think about amazon inspector.
+
+#Amazon Macie
+PII personally identifiable information Macie 
+
+#AWS shared responsibility model
+Under the shared responsibility model, what are you responsible for in RDS?
+Security Group Rules
+
