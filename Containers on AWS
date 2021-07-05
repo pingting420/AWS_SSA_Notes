@@ -1,0 +1,28 @@
+#Docker Introduction
+
+#ECS = Elastic Container Service
+#Fargate
+#IAM Roles for ECS Tasks
+EC2 instance used by ECS agent
+ECS Task Role：
+Allow each task to have a specific role
+Task role is defined in the task definition
+Exam: if you have a ECS service, with task need to access a specific aws service, then create your own ECS task role.
+EFS File System: a cloud service for storing things.
+AWS Fargate 是一种计算引擎，用于部署和管理容器，而无需管理任何底层架构。
+Fargate + EFS = serverless + data storage without managing servers
+
+#ECS Services &Tasks
+
+#Load Balancing for EC2 Launch Type
+You must allow on the EC2 instance’s security group any port from the ALB security group 
+
+ECS Scaling:
+ECS service scaling
+Backend EC2 instances scaling
+
+#Amazon EKS Overview
+A another way to run amazon container in aws
+EKS = Amazon Elastic Kubernetes service – 一项托管服务
+Kubernetes = is cloud- agnostic(can be used in any cloud -Azure, GCP)
+
